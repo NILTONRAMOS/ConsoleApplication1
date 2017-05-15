@@ -1,0 +1,40 @@
+#include<iostream>
+#include "stdafx.h"
+#include<iomanip>
+#include<stdlib.h>  //para random
+#include<time.h>  // para random 
+#include<math.h>
+#define x 100
+#define y 100
+double matrix[x][y];
+
+using namespace std;
+
+void ordenar_matrix();
+int main()
+{
+	srand((unsigned)time(NULL));
+	
+	for (int i = 0; i <= 3; i++) {
+		for (int j = 0; j <= 3; j++) {
+			/*cout << "ingreseel valor de la psicion " << i + 1 << "," << j + 1 << endl;
+			cin >> matrix[i][j]; //  pide y almacena valores ingresados por consola 
+			*/
+			matrix[i][j] = rand() % 1000 + 1;  // genera una matriz con numeros aleatorios 
+		}
+	}
+	system("cls");
+	ordenar_matrix();
+	
+	system("PAUSE");
+    return 0;
+}
+void ordenar_matrix() {  // funcion que ordena con espacios determinados la matriz generado 
+	for (int i = 0; i <= 3; i++) {
+		for (int j = 0; j <= 3; j++) {
+			cout << setw(8) << matrix[i][j];
+		}
+		cout << endl;
+	}
+}
+
