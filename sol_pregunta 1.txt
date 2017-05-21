@@ -1,0 +1,39 @@
+#include "stdafx.h"
+#include<iostream>
+#include<math.h>
+using namespace std;
+double PI = 4*atan(1);  // definiendo el valor de PI en radianes 
+
+int main()
+{
+	double p1,p2,l,area,areatotal;     //variables 
+	int n;
+
+	cout << " n  : " << endl;
+	cin >> n;					 //  numero de puntos en que se desa dividir el arco 
+
+	l = 2* PI / (n-1);				// valor del angulo en radianes al ser dividido en n puntos 
+
+	area = 0;					// inicializamos area en cero 
+
+	areatotal = 0;	 				// inicializmos area total en cero 
+
+	for (int i = 0; i <=n-2;i++) {
+		// p1 y p2 son las cordenads consecutivas 
+
+		p1 = 2.1 + 0.5*sin(3 *l* i + 2) - 0.2*i*l;
+		p2= 2.1 + 0.5*sin(3*l*(i+1) + 2) - 0.2*l*(i+1);
+	   // cout << "los puntos son :" <<i<<"    "<<g<< endl;
+		// area del triandulo al unir el eje polar y 2 cordenadas consecutivas 
+
+		area = (p1*p2*sin(l)) / 2; 
+
+		areatotal = areatotal + area;
+	}
+
+	cout<< "Area aproximada : " << areatotal << endl;
+
+	system("PAUSE");
+	return 0;
+}
+
